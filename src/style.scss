@@ -1,0 +1,165 @@
+@import 'normalize.css/normalize.css';
+@import './fonts.scss';
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-link-color: #39c;
+    --default-link-color: #069;
+    --header-height: 70px;
+    font-family: 'Raleway', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 5rem);
+    line-height: 1.5;
+    font-weight: 400;
+    
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+    
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-stop: always;
+    scroll-snap-type: y mandatory;
+    width: 100vw;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+svg {
+    fill: currentColor;
+    height: auto;
+    max-width: 100%;
+}
+
+h2 {
+    align-self: center;
+    font-size: clamp(1.75rem, 33vw, 3rem);
+    position: relative;
+
+    &::after {
+        border-bottom: 2px solid currentColor;
+        content: '';
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: calc(100% + 0.125rem);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        background-color: #fcf9e9;
+    }
+}
+
+.full-width {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: none;
+}
+
+.page-header {
+    background-color: #213547;
+    box-shadow: 0 0 3px #21354799;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    .main-nav {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 1rem;
+        justify-content: center;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    a {
+        color: #fff;
+        font-size: clamp(16px, 2vw, 24px);
+        text-decoration: none;
+    }
+}
+
+/**
+ * Content sections
+ */
+section {
+    align-items: flex-start;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    min-height: calc(80vh - var(--header-height));
+    padding: 1rem;
+    scroll-snap-align: top;
+    width: 100vw;
+}
+
+#group-image {
+    margin-bottom: 1.25rem;
+}
+
+#intro {
+    justify-content: space-between;
+    min-height: 0;
+    padding-top: 0;
+
+    #logo-animated,
+    svg {
+        margin: 0 auto;
+    }
+
+    svg {
+        margin: auto;
+        padding: 0 0 1rem;
+    }
+
+    @media (min-aspect-ratio: 4/3) {
+        min-height: calc(80vh - var(--header-height));
+    }
+
+    @media (max-width: 1279px) {
+        padding: 0;
+
+        svg {
+            padding: 0 1rem 1rem;
+        }
+    }
+}
+
+#about,
+#contact {
+    background-color: #686868;
+
+    @media (prefers-color-scheme: light) {
+        background-color: #dee;
+    }
+}
+
+#contact {
+    p {
+        margin-bottom: 2.5rem;
+    }
+}
