@@ -15,7 +15,7 @@
     font-weight: 400;
     
     color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
+    color: #fcf9e9;
     background-color: #242424;
     
     text-rendering: optimizeLegibility;
@@ -48,15 +48,16 @@ svg {
 h2 {
     align-self: center;
     font-family: 'Fredericka the Great', 'Raleway', sans-serif;
-    font-size: clamp(1.25rem, 10vw, 3rem);
+    font-size: clamp(1.25rem, 10vw, 2.5rem);
     position: relative;
+    text-align: center;
 
     &::before {
         border-bottom: 2px solid currentColor;
         content: '';
-        left: -0.5em;
+        left: 0;
         position: absolute;
-        right: -0.5em;
+        right: 0;
         top: 100%;
     }
 
@@ -72,7 +73,7 @@ h2 {
 
 @media (prefers-color-scheme: light) {
     :root {
-        color: #213547;
+        color: #0a3c4e;
         background-color: #fcf9e9;
     }
 }
@@ -101,14 +102,32 @@ h2 {
         flex-flow: row nowrap;
         gap: 1rem;
         justify-content: center;
-        overflow-x: scroll;
-        overflow-y: hidden;
     }
 
     a {
-        color: #fff;
+        color: #fcf9e9;
         font-size: clamp(16px, 2vw, 24px);
+        position: relative;
         text-decoration: none;
+
+        &::after {
+            border-bottom: 2px solid #fcf9e9;
+            content: '';
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: calc(100% + 0.125em);
+            transform: scale(0, 1);
+            transform-origin: center center;
+            transition: transform 300ms ease-in-out;
+        }
+
+        &:hover,
+        &.active {
+            &::after {
+                transform: scale(1, 1);
+            }
+        }
     }
 }
 
@@ -124,6 +143,12 @@ section {
     padding: 1rem;
     scroll-snap-align: top;
     width: 100vw;
+
+    .section-content {
+        margin: 0 auto;
+        max-width: 960px;
+        width: 100%;
+    }
 }
 
 #group-image {
@@ -155,10 +180,12 @@ section {
 
 #about,
 #contact {
-    background-color: #686868;
+    background-color: #0a3c4e;
+    color: #fcf9e9;
 
     @media (prefers-color-scheme: light) {
         background-color: #dee;
+        color: #0a3c4e;
     }
 }
 
