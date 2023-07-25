@@ -1,6 +1,17 @@
 import './style.scss'
 import claimType from '/claim.svg?raw'
 
+window.addEventListener('hashchange', (ev: HashChangeEvent) => {
+    const id = ev.newURL.split('#')[1];
+    if (id !== undefined) {
+        const activeLink = document.querySelector('.main-nav a.active');
+        const link = document.querySelector(`.main-nav a[href="#${id}"]`);
+
+        activeLink?.classList.remove('active');
+        link?.classList.add('active');
+    }
+});
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <header class="page-header">
         <nav class="main-nav">
