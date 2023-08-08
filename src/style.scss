@@ -89,8 +89,8 @@ h2 {
 }
 
 .page-header {
-    background-color: #213547;
-    box-shadow: 0 0 3px #21354799;
+    background-color: #0a3c4e;
+    box-shadow: 0 0 3px #0a3c4e99;
     color: #fff;
     padding: 0.5rem 1rem;
     position: sticky;
@@ -149,6 +149,10 @@ section {
         max-width: 960px;
         width: 100%;
     }
+
+    &:not(#intro) {
+        padding-bottom: 2.5rem;
+    }
 }
 
 #group-image {
@@ -162,7 +166,6 @@ section {
 
     svg {
         margin: auto;
-        padding: 0 0 1rem;
     }
 
     @media (min-aspect-ratio: 4/3) {
